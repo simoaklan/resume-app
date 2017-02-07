@@ -1,0 +1,66 @@
+  <md-card>
+    <md-card-title>		
+			<!--<md-input placeholder="{{ 'Title' | translate }}" [(ngModel)]="personalInfo.title" name="title"></md-input>-->
+      <h2>{{ personalInfo.title | translate }}</h2>
+		</md-card-title>
+    <md-card-subtitle></md-card-subtitle>
+    <md-divider></md-divider>
+    <md-card-content>
+      <div>
+        <form #form="ngForm" class="form-validate" >
+          <div layout="row" layout-align="space-between center">
+            <div class="input-field col" flex="22" style="max-width: 24%;">
+              <md-input placeholder="{{ 'First Name' | translate }}" (ngModelChange)=" personalInfo.firstName=$event;onChangeName();" [ngModel]="personalInfo.firstName" id="firstName" name="firstName" required ></md-input>
+              <div *ngIf="formErrors.firstName" class="input-field-error" style="display: block;">{{ formErrors.firstName | translate }}</div>
+            </div>
+            <div class="input-field col" flex="22" style="max-width: 24%;">
+              <md-input placeholder="{{ 'Last Name' | translate }}" (ngModelChange)="personalInfo.lastName=$event; onChangeName();" [ngModel]="personalInfo.lastName" id="lastName" name="lastName" required></md-input>
+              <div *ngIf="formErrors.lastName" class="input-field-error" style="display: block;">{{ formErrors.lastName | translate }}</div>
+            </div>                          
+            <md-input placeholder="{{'Full Name' | translate }}" [(ngModel)]="personalInfo.fullName" id="fullName" name="fullName" flex="45" style="max-width: 48%;"></md-input>                                                   
+          </div>
+          <div layout="row" layout-align="space-between center">
+            <div class="input-field col" flex="30" >              
+              <md-input placeholder="{{ 'Gender' | translate }}" [(ngModel)]="personalInfo.gender" id="gender" name="gender" required></md-input>                        
+              <div *ngIf="formErrors.gender" class="input-field-error" style="display: block;">{{ formErrors.gender | translate }}</div>
+            </div>              
+            <md-input flex="30" placeholder="{{ 'Nationality' | translate }}" [(ngModel)]="personalInfo.nationality" id="nationality" name="nationality"></md-input>
+            <md-input flex="30" placeholder="{{ 'Date of Birth' | translate }}" [(ngModel)]="personalInfo.dob" id="dob" name="dob"></md-input>
+          </div>          
+          <div layout="row" layout-align="space-between center">
+            <md-input flex="30" placeholder="{{ 'Address' | translate }}" [(ngModel)]="personalInfo.address" id="address" name="address"></md-input>
+            <md-input flex="30" placeholder="{{ 'City' | translate }}" [(ngModel)]="personalInfo.city" id="city" name="city"></md-input>
+            <md-input flex="30" placeholder="{{ 'Country' | translate }}" [(ngModel)]="personalInfo.country" id="country" name="country"></md-input>
+          </div>
+          <div layout="row" layout-align="space-between center">
+            <md-input flex="45" style="max-width: 48%;" placeholder="{{ 'Mobile' | translate }}" [(ngModel)]="personalInfo.mobile" id="mobile" name="mobile"></md-input>
+            <div class="input-field col" flex="45" >
+              <md-input placeholder="{{ 'Email' | translate }}" [(ngModel)]="personalInfo.email" id="email" name="email" required></md-input>
+              <div *ngIf="formErrors.email" class="input-field-error" style="display: block;">{{ formErrors.email | translate }}</div>
+            </div>   
+            
+          </div> 
+          <div layout="row">
+            <md-textarea flex="100" placeholder="{{ 'Profile' | translate }}" [(ngModel)]="personalInfo.profile" id="profile" name="profile"></md-textarea>
+          </div>
+          <div layout="row">
+            <td-expansion-panel flex="100" label="{{ 'Social Contacts' | translate }}" collapsed="true">
+              <div class="md-padding">
+                <div *ngFor="let itm of personalInfo.accountList">
+                  <div layout="row" layout-align="space-between center">
+                    <contact-account flex="90" [item]="itm"></contact-account>
+                    <button type="button" class="close" aria-label="Close" (click)="removeAccount(personalInfo.accountList.indexOf(itm))"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                </div>
+              </div>
+              <md-divider></md-divider>
+              <md-card-actions layout="row">
+                <a md-button (click)="addAccount()">{{ 'Add Account' | translate }}</a>
+              </md-card-actions>
+            </td-expansion-panel>
+          </div>         
+        </form>
+      </div>
+    </md-card-content>
+  </md-card>
+

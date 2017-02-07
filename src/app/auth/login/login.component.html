@@ -1,0 +1,19 @@
+<div layout="column">
+  <h2>{{ title | translate }}</h2>
+  <form [formGroup]="loginForm" (submit)="loginByEmail()" novalidate>
+    <div layout="column">
+      <div *ngIf="submitAttempt && loginError" layout-align="center">
+        <p>{{ 'The User Or Password is Invalid' | translate }}</p>
+      </div>
+      <div layout="column" layout-align="center">
+        <md-input #email name='email' placeholder="Email address" formControlName="email" type="email" (change)="elementChanged(email)"
+          [class.invalid]="!loginForm.controls.email.valid &&(emailChanged || submitAttempt)">
+        </md-input>
+        <md-input #password name='password' placeholder="Your password" formControlName="password" type="password" (change)="elementChanged(password)"
+          [class.invalid]="!loginForm.controls.password.valid &&(passwordChanged || submitAttempt)">
+        </md-input>
+      </div>
+      <button md-button type="submit">{{ 'Login' | translate }}</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+html {
+    direction: rtl;
+}
+/*md-sidenav .md-list-item md-icon {
+    margin-left: 16px;
+    margin-right: 0px!important;
+}*/
+
+[dir='rtl'] .md-input-placeholder {
+  right: 0;
+}

@@ -1,0 +1,35 @@
+<div [dir]="translateService.getDir()">
+    <h3 class="mdl-dialog__title">{{title | translate }}</h3>
+    <div class="flex-show">
+
+        <div class="mdl-dialog__content">
+            <div class="content-flex">
+                <div layout="row">
+                    <div layout="column" flex>
+                        <router-outlet></router-outlet>
+                    </div>
+                    <div class="seperator-flex">
+                        <div class="or">أو</div>
+                    </div>
+                    <div flex>
+                        <div layout="column">
+                            <button class="social-signin facebook" (click)="login('facebook')">فيسبوك <i class="fa fa-facebook" aria-hidden="true"></i></button>
+                            <button class="social-signin twitter" (click)="login('twitter')">تويتر &nbsp; &nbsp;&nbsp;&nbsp;<i class="fa fa-twitter" aria-hidden="true"></i></button>
+                            <button class="social-signin google" (click)="login('google')">جوجل &nbsp;<i class="fa fa-google-plus" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mdl-dialog__content reg-with-us">
+        <p>
+            لا يقوم الموقع بمشاركة بياناتك مع أي طرف اخر بدون اذنك. لتفاصيل أكثر يرجى الاطلاع على سياسة الخصوصية للموقع.
+        </p>
+    </div>
+    <div layout="row">
+        <a md-button routerLink="/auth">{{ 'Login' | translate }}</a>
+        <a md-button routerLink="reset-password">{{ 'I forgot my password' | translate }}</a>
+        <a md-button routerLink="sign-up">{{ 'Create a new account' | translate }}</a>
+    </div>
+</div>
