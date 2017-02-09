@@ -1,6 +1,6 @@
 import { NgModule }     from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from './auth/auth-guard.service';
+// import { AuthGuardService } from './auth/auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
@@ -15,7 +15,7 @@ const routs: Routes = [
         {
           path: 'resume-version',
           loadChildren: 'app/resume-version/resume-version.module#ResumeVersionModule',
-          canLoad: [AuthGuardService]
+          //canLoad: [AuthGuardService]
         },
         {
           path: 'resume-template',
