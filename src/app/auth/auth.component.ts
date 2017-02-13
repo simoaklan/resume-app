@@ -5,7 +5,7 @@ import { TranslatePipe } from '../shared/translate/translate.pipe';
 import { TranslateService } from '../shared/translate/translate.service';
 
 @Component({
-  selector: 'auth',
+  selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css','./dialog.css']
 })
