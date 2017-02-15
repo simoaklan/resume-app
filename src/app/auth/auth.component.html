@@ -6,7 +6,10 @@
             <div class="content-flex">
                 <div layout="row">
                     <div layout="column" flex>
-                        <router-outlet></router-outlet>
+                        <div [ngSwitch]="authType">
+                            <login *ngSwitchCase="'login'"></login>
+                            <sign-up *ngSwitchCase="'sign-up'"></sign-up>
+                        </div>
                     </div>
                     <div class="seperator-flex">
                         <div class="or">أو</div>
@@ -26,10 +29,5 @@
         <p>
             لا يقوم الموقع بمشاركة بياناتك مع أي طرف اخر بدون اذنك. لتفاصيل أكثر يرجى الاطلاع على سياسة الخصوصية للموقع.
         </p>
-    </div>
-    <div layout="row">
-        <a md-button routerLink="/auth">{{ 'Login' | translate }}</a>
-        <a md-button routerLink="reset-password">{{ 'I forgot my password' | translate }}</a>
-        <a md-button routerLink="sign-up">{{ 'Create a new account' | translate }}</a>
     </div>
 </div>
