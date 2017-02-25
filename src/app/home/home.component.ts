@@ -8,7 +8,7 @@ import { AuthService } from '../core/auth.service';
   styleUrls: ['./home.component.css','./styles.css','./font_style.css','./style_rtl.css','./dialog.css']
 })
 export class HomeComponent  {
-
+  authType: string = 'login';
   constructor(private authService: AuthService) { }
 
  

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 // import { AuthGuardService } from './auth/auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
-
+//import {AuthComponent} from './auth/auth.component';
 const routs: Routes = [
         { path: '', redirectTo: 'home', pathMatch: 'full'},
         { path: 'home', component: HomeComponent },

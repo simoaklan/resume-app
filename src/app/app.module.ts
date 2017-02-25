@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CovalentCoreModule } from '@covalent/core';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app.routing.module';
-
+import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MdlModule } from 'angular2-mdl';
@@ -19,6 +19,7 @@ import { MdlModule } from 'angular2-mdl';
     MdlModule,
     CovalentCoreModule.forRoot(),    
     CoreModule,
+    AuthModule,
     AppRoutingModule
   ],
   providers: [AppRoutingModule],

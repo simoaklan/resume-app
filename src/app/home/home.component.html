@@ -7,8 +7,8 @@
            <!-- Navigation -->
           <div class="android-navigation-container">
             <nav class="android-navigation mdl-navigation">
-             <a class="mdl-navigation__link" #editUserButton1 *ngIf="!authService.user" (click)="editUserDialog.show()">تسجيل جديد</a>
-<a class="mdl-navigation__link" #editUserButton2 *ngIf="!authService.user" (click)="editUserDialog.show()">تسجيل دخول</a>
+             <a class="mdl-navigation__link" #editUserButton1 *ngIf="!authService.user" (click)="authType='sign-up';editUserDialog.show()">تسجيل جديد</a>
+<a class="mdl-navigation__link" #editUserButton2 *ngIf="!authService.user" (click)="authType='login';editUserDialog.show()">تسجيل دخول</a>
 <a class="mdl-navigation__link" *ngIf="authService.user" routerLink="/resume-version">Dashboard</a>
 <a class="mdl-navigation__link" *ngIf="authService.user" (click)="authService.logout()">LogOut</a>
 <a class="mdl-navigation__link" href="">عنا</a>
@@ -49,52 +49,7 @@
         <div class="android-be-together-section mdl-typography--text-center">
           <div class="logo-font android-slogan">ابن سيرتك الذاتية معنا واصنع فرصتك</div>
           <div class="logo-font android-sub-slogan">العملية سهلة... <button #editUserButton mdl-button mdl-button-type="raised" class="mdl-button--colored"
-        mdl-ripple (click)="editUserDialog.show()">ابدأ الان</button></div>
-          <!-- The code for modal dialog registration-->
-          <!--<dialog class="mdl-dialog" id="modal-example">
-              <h3 class="mdl-dialog__title">سجل باستخدام</h3>
-              <div class="flex-show">
-                  
-                <div class="mdl-dialog__content">
-                  <div class="content-flex">
-                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input type="text" class="mdl-textfield__input" id="text-email" name="email" />
-                    <label class="mdl-textfield__label" for="text-email">البريد الالكتروني</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input type="text" class="mdl-textfield__input" id="text-password" name="password" />
-                    <label class="mdl-textfield__label" for="text-password">كلمة السر</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input type="text" class="mdl-textfield__input" id="text-password2" name="password2" />
-                    <label class="mdl-textfield__label" for="text-password2">اعادة كتابة كلمة السر</label>
-                    </div>
-                    <input type="submit" name="signup_submit" value="تسجيل" />
-                  </div>
-                </div>
-                <div class="seperator-flex">
-                  <div class="or">أو</div>
-                </div>
-                <div class="mdl-dialog__content">
-                  <div class="content-flex">
-                    <button class="social-signin facebook">فيسبوك <i class="fa fa-facebook" aria-hidden="true"></i></button>
-                    <button class="social-signin twitter">تويتر &nbsp; &nbsp;&nbsp;&nbsp;<i class="fa fa-twitter" aria-hidden="true"></i></button>
-                    <button class="social-signin google">جوجل &nbsp;<i class="fa fa-google-plus" aria-hidden="true"></i></button>
-                    
-                  </div>
-                </div>
-                
-              </div>
-              <div class="mdl-dialog__content reg-with-us">
-                <p>
-                  لا يقوم الموقع بمشاركة بياناتك مع أي طرف اخر بدون اذنك. لتفاصيل أكثر يرجى الاطلاع على سياسة الخصوصية للموقع.
-                </p>
-              </div>
-              <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-                  <button id="close_button" type="button" class="mdl-button">اغلاق</button>
-              </div>
-          </dialog>-->
-          <!--test dialog-->
+        mdl-ripple (click)="authType='sign-up';editUserDialog.show()">ابدأ الان</button></div>
           
         <mdl-dialog #editUserDialog
             [mdl-dialog-config]="{
@@ -108,39 +63,7 @@
               enterTransitionDuration: 400,
               leaveTransitionDuration: 400}"
             >
-            
-  <!--<h3 class="mdl-dialog__title">سجل باستخدام</h3>
-              <div class="flex-show">
-                  
-                <div class="mdl-dialog__content">
-                  <div class="content-flex">
-                  
-                    <mdl-textfield type="text" label="البريد الالكتروني" [(ngModel)]="text1" floating-label></mdl-textfield>
-                    <mdl-textfield type="text" label="كلمة السر" [(ngModel)]="text2" floating-label></mdl-textfield>
-                    <mdl-textfield type="text" label="اعادة كلمة السر" [(ngModel)]="text3" floating-label></mdl-textfield>
-                   
-                    <input type="submit" name="signup_submit" value="تسجيل" />
-                  </div>
-                </div>
-                <div class="seperator-flex">
-                  <div class="or">أو</div>
-                </div>
-                <div class="mdl-dialog__content">
-                  <div class="content-flex">
-                    <button class="social-signin facebook">فيسبوك <i class="fa fa-facebook" aria-hidden="true"></i></button>
-                    <button class="social-signin twitter">تويتر &nbsp; &nbsp;&nbsp;&nbsp;<i class="fa fa-twitter" aria-hidden="true"></i></button>
-                    <button class="social-signin google">جوجل &nbsp;<i class="fa fa-google-plus" aria-hidden="true"></i></button>
-                    
-                  </div>
-                </div>
-                
-              </div>
-              <div class="mdl-dialog__content reg-with-us">
-                <p>
-                  لا يقوم الموقع بمشاركة بياناتك مع أي طرف اخر بدون اذنك. لتفاصيل أكثر يرجى الاطلاع على سياسة الخصوصية للموقع.
-                </p>
-              </div>-->
-
+            <app-auth [authType]="authType"></app-auth>
   
   <div class="mdl-dialog__actions">
     <button mdl-button (click)="editUserDialog.close()" class="mdl-button" mdl-ripple>إلغاء</button>

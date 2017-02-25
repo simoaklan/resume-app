@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../core/auth.service';
 import { TranslatePipe } from '../shared/translate/translate.pipe';
 import { TranslateService } from '../shared/translate/translate.service';
 
 @Component({
-  selector: 'auth',
+  selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css','./dialog.css']
 })
 export class AuthComponent implements OnInit {  
-
+  @Input() authType: string = 'login';
   constructor(public authService: AuthService, public router: Router, 
     public translateService: TranslateService) {
   }
